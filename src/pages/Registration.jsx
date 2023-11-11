@@ -20,6 +20,13 @@ function Registration() {
 
   let handleSubmit =()=>{
     let isemail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    let isLowercase = /^(?=.*[a-z]).*$/
+    let isNumber = /^(?=.*[0-9]).*$/
+    let isContainsSymbol = /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/
+    let isValidLength = /^.{6,16}$/
+    let isPassword   = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/
+   
+    
 
    if(!regData.userName){
     setNameError("Please enter a Name")
@@ -40,11 +47,21 @@ function Registration() {
    if(!regData.userPassword){
     setPasswordError("Please enter a Password")
    }else{
-    setPasswordError("")
+    if(!isLowercase.test(regData.userPassword)){
+      setPasswordError("Password must have at least one Lowercase Character.")
+    }else if(!isNumber.test(regData.userPassword)){
+      setPasswordError("Password must have at Number.")
+    }else if(!isContainsSymbol.test(regData.userPassword)){
+      setPasswordError("Password must have at least one Contins Symbol.")
+    }else if(!isValidLength.test(regData.userPassword)){
+      setPasswordError("Password must have at Length 6 to 16.")
+    }else{
+      setPasswordError("")
+    }
    }
 
 
-if(regData.userEmail && regData.userName && regData.userPassword && isemail.test(regData.userEmail) ){
+if(regData.userEmail && regData.userName && regData.userPassword && isemail.test(regData.userEmail) && isPassword.test(regData.userPassword) ){
   console.log("Done");
 }
     
