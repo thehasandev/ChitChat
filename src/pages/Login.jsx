@@ -4,6 +4,7 @@ import Man from "../assets/pepoles.png"
 import {FaRegEyeSlash} from "react-icons/fa"
 import {BsFillEyeFill} from "react-icons/bs"
 import Goggle from "../assets/goggle.png"
+import Flex from "../components/Flex"
 
 
 function Login() {
@@ -34,11 +35,17 @@ function Login() {
                   }
                 </div>
               </div>
-
-              <div className='flex items-center gap-x-2 mt-4  '>
-              <input type="checkbox" />
-                <p className='font-inter font-normal text-base text-[#4E4E4E]'>Remember Me</p>
+            <Flex className="justify-between items-center w-10/12 mt-4 ">
+              <div className='flex items-center gap-x-2  '>
+                <input type="checkbox" />
+                <p className='font-inter font-normal text-sm md:text-base text-[#4E4E4E]'>Remember Me</p>
               </div>
+
+          
+                <p className='font-inter font-normal text-sm md:text-base text-primary'>Forgot Password?</p>
+             
+
+            </Flex>
 
               <button className='w-10/12 rounded-[5px] bg-primary py-3 text-white font-inter font-semibold text-lg mt-7'>Log in</button>
               <p className='font-inter font-normal text-[#7A7A7A] text-base mt-6'>Dont’t have an account? <span className='text-primary font-semibold'>Sign Up</span></p>
