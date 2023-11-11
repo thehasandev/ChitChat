@@ -1,10 +1,12 @@
 import React from 'react'
+import {RouterProvider} from "react-router-dom";
+
+import Route from './routes/Route';
 
 function App() {
   return (
-    <div>
-      <h1>This is Tailwind setup</h1>
-    </div>
+    <RouterProvider router={Route}/>
+      
   )
 }
 
