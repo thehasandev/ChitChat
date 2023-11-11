@@ -44,8 +44,9 @@ function Login() {
                 <p className='font-inter font-normal text-sm md:text-base text-[#4E4E4E]'>Remember Me</p>
               </div>
 
-          
-                <p className='font-inter font-normal text-sm md:text-base text-primary'>Forgot Password?</p>
+                <Link to="/forgot">
+                  <p className='font-inter font-normal text-sm md:text-base text-primary'>Forgot Password?</p>
+                </Link>
              
 
             </Flex>

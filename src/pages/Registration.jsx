@@ -19,6 +19,7 @@ function Registration() {
   }
 
   let handleSubmit =()=>{
+
     let isemail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     let isLowercase = /^(?=.*[a-z]).*$/
     let isNumber = /^(?=.*[0-9]).*$/
@@ -27,7 +28,6 @@ function Registration() {
     let isPassword   = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/
    
     
-
    if(!regData.userName){
     setNameError("Please enter a Name")
    }else{
@@ -109,7 +109,7 @@ if(regData.userEmail && regData.userName && regData.userPassword && isemail.test
               </div>
 
               <button onClick={handleSubmit} className='w-10/12 rounded-[5px] bg-primary py-3 text-white font-inter font-semibold text-lg mt-7'>Sign Up</button>
-              <p className='font-inter font-normal text-[#7A7A7A] text-base mt-6'>Have an account? <Link to="/log-in"><span className='text-primary font-semibold'>Sign In</span></Link></p>
+              <p className='font-inter font-normal text-[#7A7A7A] text-base mt-6'>Have an account? <Link to="/"><span className='text-primary font-semibold'>Sign In</span></Link></p>
           </div>
 
        </div>
