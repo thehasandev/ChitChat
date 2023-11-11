@@ -8,7 +8,7 @@ function Registration() {
     <>
      <Flex>
        <div className='w-5/12'>
-        <h1 className='font-inter'>sdfds</h1>
+       <h1 className='text-primary'>sdf</h1>
        </div>
       
        <div className='w-7/12 relative'>

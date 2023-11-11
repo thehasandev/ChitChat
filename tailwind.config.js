@@ -9,6 +9,10 @@ export default {
       fontFamily: {
         'inter': ['Inter'],
       },
+      colors: {
+        'primary': '#32375C',
+        'secondary': '#222222',
+      },
     },
   },
   plugins: [],
