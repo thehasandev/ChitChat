@@ -19,6 +19,8 @@ function Registration() {
   }
 
   let handleSubmit =()=>{
+    let isemail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
    if(!regData.userName){
     setNameError("Please enter a Name")
    }else{
@@ -28,7 +30,11 @@ function Registration() {
    if(!regData.userEmail){
     setEmailError("Please enter a Email")
    }else{
-    setEmailError("")
+    if(!isemail.test(regData.userEmail)){
+      setEmailError("Please enter a Valid Email")
+    }else{
+      setEmailError("")
+    }
    }
 
    if(!regData.userPassword){
@@ -37,6 +43,10 @@ function Registration() {
     setPasswordError("")
    }
 
+
+if(regData.userEmail && regData.userName && regData.userPassword && isemail.test(regData.userEmail) ){
+  console.log("Done");
+}
     
 
   }
