@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Flex from '../components/Flex'
 import Image from '../components/Image'
 import Man from "../assets/pepoles.png"
 import {FaRegEyeSlash} from "react-icons/fa"
