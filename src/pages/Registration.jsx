@@ -3,10 +3,44 @@ import Image from '../components/Image'
 import Man from "../assets/pepoles.png"
 import {FaRegEyeSlash} from "react-icons/fa"
 import {BsFillEyeFill} from "react-icons/bs"
+import { Link } from 'react-router-dom'
 
 
 function Registration() {
   let [eye,setEye] = useState(false)
+  let [regData,setRegData]  = useState({userName:"",userEmail:"",userPassword:""})
+ 
+  let [nameError,setNameError] =useState("")
+  let [emailError,setEmailError] =useState("")
+  let [passwordError,setPasswordError] =useState("")
+   
+  let handleInputChange =(e)=>{
+     setRegData({...regData,[e.target.name]:e.target.value})
+  }
+
+  let handleSubmit =()=>{
+   if(!regData.userName){
+    setNameError("Please enter a Name")
+   }else{
+    setNameError("")
+   }
+
+   if(!regData.userEmail){
+    setEmailError("Please enter a Email")
+   }else{
+    setEmailError("")
+   }
+
+   if(!regData.userPassword){
+    setPasswordError("Please enter a Password")
+   }else{
+    setPasswordError("")
+   }
+
+    
+
+  }
+
   return (
     <>
      <div className='flex flex-col-reverse md:flex-row gap-y-5'>
@@ -17,18 +51,20 @@ function Registration() {
               
               <div className='mt-6'>
                 <p className='font-inter font-bold text-base text-secondary mb-2'>Full Name</p>
-                <input type="text" placeholder='Name here'  className='w-10/12 border border-gray p-3.5 rounded-[5px]'/>
+                <input onChange={handleInputChange} type="text" name='userName' value={regData.userName} placeholder='Name here'  className='w-10/12 border border-gray p-3.5 rounded-[5px]'/>
               </div>
+              <p className='font-inter font-normal text-[red] text-xs mt-1'>{nameError}</p>
 
               <div className='mt-6'>
                 <p className='font-inter font-bold text-base text-secondary mb-2'>Email</p>
-                <input type="text" placeholder='Enter your mail'  className='w-10/12 border border-gray p-3.5 rounded-[5px]'/>
+                <input onChange={handleInputChange} type="text" name='userEmail' value={regData.userEmail} placeholder='Enter your mail'  className='w-10/12 border border-gray p-3.5 rounded-[5px]'/>
               </div>
+              <p className='font-inter font-normal text-[red] text-xs mt-1'>{emailError}</p>
 
               <div className='mt-6'>
                 <p className='font-inter font-bold text-base text-secondary mb-2'>Password</p>
                 <div className='w-10/12 relative'>
-                  <input type={`${eye ? "text":"password"}`} placeholder='Password'  className='w-full border border-gray p-3.5 rounded-[5px]'/>
+                  <input onChange={handleInputChange} type={`${eye ? "text":"password"}`} name='userPassword' value={regData.userPassword} placeholder='Password'  className='w-full border border-gray p-3.5 rounded-[5px]'/>
                   {
                     eye ?
                     <BsFillEyeFill onClick={()=>{setEye(!eye)}} className='absolute top-1/2 right-5 -translate-y-1/2 text-[#7A7A7A] cursor-pointer'/>
@@ -37,6 +73,7 @@ function Registration() {
 
                   }
                 </div>
+                <p className='font-inter font-normal text-[red] text-xs mt-1'>{passwordError}</p>
               </div>
 
               <div className='flex items-center gap-x-2 mt-4  '>
@@ -44,8 +81,8 @@ function Registration() {
                 <p className='font-inter font-normal text-base text-[#4E4E4E]'>Remember Me</p>
               </div>
 
-              <button className='w-10/12 rounded-[5px] bg-primary py-3 text-white font-inter font-semibold text-lg mt-7'>Sign Up</button>
-              <p className='font-inter font-normal text-[#7A7A7A] text-base mt-6'>Have an account? <span className='text-primary font-semibold'>Sign In</span></p>
+              <button onClick={handleSubmit} className='w-10/12 rounded-[5px] bg-primary py-3 text-white font-inter font-semibold text-lg mt-7'>Sign Up</button>
+              <p className='font-inter font-normal text-[#7A7A7A] text-base mt-6'>Have an account? <Link to="/log-in"><span className='text-primary font-semibold'>Sign In</span></Link></p>
           </div>
 
        </div>
@@ -61,3 +98,19 @@ function Registration() {
 }
 
 export default Registration
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
