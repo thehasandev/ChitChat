@@ -1,8 +1,15 @@
 import React from 'react'
+import Flex from '../components/Flex'
 
 function Registration() {
   return (
-    <div>Registration</div>
+    <>
+     <Flex>
+       <div>fdsd</div>
+       <div>fdsd</div>
+     </Flex>
+
+    </>
   )
 }
 
