@@ -5,12 +5,17 @@ import {FaRegEyeSlash} from "react-icons/fa"
 import {BsFillEyeFill} from "react-icons/bs"
 import Goggle from "../assets/g.png"
 import Flex from "../components/Flex"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { toast } from 'react-toastify'
 
 
 function Login() {
+  const auth = getAuth();
   const [eye,setEye] = useState(false)
   const [logData,setLogData] = useState({userEmail:"",userPassword: ""})
+  const navigate = useNavigate()
 
   const [emailError,setEmailError] = useState("")
   const [passwordError,setPasswordError] = useState("")
@@ -31,7 +36,18 @@ function Login() {
     }
 
     if(logData.userEmail && logData.userPassword){
-      console.log("Done");
+      signInWithEmailAndPassword(auth, logData.userEmail, logData.userPassword)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        navigate('/home')
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        if(errorCode.includes("login")){
+          toast.error('Credentials not Match')
+        }
+      });
     }
   }
   return (
