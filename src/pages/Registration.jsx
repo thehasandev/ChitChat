@@ -4,6 +4,8 @@ import Man from "../assets/pepoles.png"
 import {FaRegEyeSlash} from "react-icons/fa"
 import {BsFillEyeFill} from "react-icons/bs"
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
@@ -69,7 +71,7 @@ if(regData.userEmail && regData.userName && regData.userPassword && isemail.test
     .then((userCredential) => {
       // Signed up 
       const user = userCredential.user;
-      console.log('Sing-in sucessfull')
+      toast.success('Sing-in sucessfull')
     })
     .catch((error) => {
       const errorCode = error.code;
