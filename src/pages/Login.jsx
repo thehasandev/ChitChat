@@ -9,7 +9,31 @@ import { Link } from 'react-router-dom'
 
 
 function Login() {
-  let [eye,setEye] = useState(false)
+  const [eye,setEye] = useState(false)
+  const [logData,setLogData] = useState({userEmail:"",userPassword: ""})
+
+  const [emailError,setEmailError] = useState("")
+  const [passwordError,setPasswordError] = useState("")
+
+  const handleInputChange =(e)=>{
+    setLogData({...logData,[e.target.name]:e.target.value})
+  }
+  const handleSubmit =()=>{
+    if(!logData.userEmail){
+     setEmailError("Please enter a Email")
+    }else{
+      setEmailError("")
+    }
+    if(!logData.userPassword){
+      setPasswordError("Please enter a Password")
+    }else{
+      setPasswordError("")
+    }
+
+    if(logData.userEmail && logData.userPassword){
+      console.log("Done");
+    }
+  }
   return (
     <>
      <div className='flex flex-col-reverse md:flex-row gap-y-5 py-8 md:py-0'>
@@ -23,14 +47,21 @@ function Login() {
               
               <div className='mt-6'>
                 <p className='font-inter font-bold text-base text-secondary mb-2'>Email</p>
-                <input type="email" placeholder='Enter your mail'  className='w-10/12 border border-gray p-3.5 rounded-[5px]'/>
+                <input value={logData.userEmail} onChange={handleInputChange} name='userEmail' type="email" placeholder='Enter your mail'  className='w-10/12 border border-gray p-3.5 rounded-[5px]'/>
+                {
+                  emailError &&
+                <p className='font-inter font-normal text-[red] text-xs mt-1'>{emailError}</p>
+                }
               </div>
 
               <div className='mt-6'>
                 <p className='font-inter font-bold text-base text-secondary mb-2'>Password</p>
                 <div className='w-10/12 relative'>
-                  <input type={`${eye ? "text":"password"}`} placeholder='Password'  className='w-full border border-gray p-3.5 rounded-[5px]'/>
-                 
+                  <input value={logData.userPassword} onChange={handleInputChange} name='userPassword' type={`${eye ? "text":"password"}`} placeholder='Password'  className='w-full border border-gray p-3.5 rounded-[5px]'/>
+                  {
+                    passwordError &&
+                  <p className='font-inter font-normal text-[red] text-xs mt-1'>{passwordError}</p>
+                  }
                   {
                     eye ?
                     <BsFillEyeFill onClick={()=>{setEye(!eye)}} className='absolute top-1/2 right-5 -translate-y-1/2 text-[#7A7A7A] cursor-pointer'/>
@@ -54,7 +85,7 @@ function Login() {
 
             </Flex>
 
-              <button className='w-10/12 rounded-[5px] bg-primary py-3 text-white font-inter font-semibold text-lg mt-7'>Log in</button>
+              <button onClick={handleSubmit} className='w-10/12 rounded-[5px] bg-primary py-3 text-white font-inter font-semibold text-lg mt-7'>Log in</button>
               <p className='font-inter font-normal text-[#7A7A7A] text-base mt-6'>Dont’t have an account? <Link to="/sing-up"><span className='text-primary font-semibold'>Sign Up</span></Link></p>
           </div>
 

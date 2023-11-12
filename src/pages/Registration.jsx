@@ -75,10 +75,11 @@ if(regData.userEmail && regData.userName && regData.userPassword && isemail.test
         navigate('/')
       },3000)
       toast.success('Registration sucessfull please varify your accout')
+      setRegData({userName:"",userEmail:"",userPassword:""})
     })
     .catch((error) => {
       const errorCode = error.code;
-     
+
     if(errorCode.includes("email")){
       setEmailError("This Email is already used")
     }
