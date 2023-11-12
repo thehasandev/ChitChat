@@ -5,8 +5,11 @@ import {FaRegEyeSlash} from "react-icons/fa"
 import {BsFillEyeFill} from "react-icons/bs"
 import { Link } from 'react-router-dom'
 
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 
 function Registration() {
+  const auth = getAuth();
   let [eye,setEye] = useState(false)
   let [regData,setRegData]  = useState({userName:"",userEmail:"",userPassword:""})
  
@@ -62,7 +65,19 @@ function Registration() {
 
 
 if(regData.userEmail && regData.userName && regData.userPassword && isemail.test(regData.userEmail) && isPassword.test(regData.userPassword) ){
-  console.log("Done");
+  createUserWithEmailAndPassword(auth, regData.userEmail, regData.userPassword)
+    .then((userCredential) => {
+      // Signed up 
+      const user = userCredential.user;
+      console.log('Sing-in sucessfull')
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+     
+    if(errorCode.includes("email")){
+      setEmailError("This Email is already used")
+    }
+    });
 }
     
 
