@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword,sendEmailVerification  } from "firebase/auth";
 
 
 function Registration() {
@@ -70,11 +70,16 @@ function Registration() {
 if(regData.userEmail && regData.userName && regData.userPassword && isemail.test(regData.userEmail) && isPassword.test(regData.userPassword) ){
   createUserWithEmailAndPassword(auth, regData.userEmail, regData.userPassword)
     .then((userCredential) => {
+      sendEmailVerification(auth.currentUser)
+      .then(() => {
+        
+      });
       const user = userCredential.user;
       setTimeout(()=>{
         navigate('/')
+
       },3000)
-      toast.success('Registration sucessfull please varify your accout')
+      toast.success('Registration sucessfull please varify your email')
       setRegData({userName:"",userEmail:"",userPassword:""})
     })
     .catch((error) => {
