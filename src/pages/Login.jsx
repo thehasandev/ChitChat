@@ -3,7 +3,7 @@ import Image from '../components/Image'
 import Man from "../assets/pepoles.png"
 import {FaRegEyeSlash} from "react-icons/fa"
 import {BsFillEyeFill} from "react-icons/bs"
-import Goggle from "../assets/goggle.png"
+import Goggle from "../assets/g.png"
 import Flex from "../components/Flex"
 import { Link } from 'react-router-dom'
 
@@ -16,7 +16,10 @@ function Login() {
        <div className='md:w-5/12 flex justify-center items-center'>
           <div className='w-full pl-10'>
               <h1 className='font-inter font-bold text-3xl text-primary'>Welcome To Ch<span className='text-[#4E4E4E]'>att.</span></h1>
-              <Image className="w-[150px] mt-4 cursor-pointer" src={Goggle}/>
+               <div className='flex mt-4 items-center gap-x-2 border border-gray w-[220px] justify-center rounded-[5px] py-1'>
+                 <img className='w-10' src={Goggle} alt="" />
+                 <p className='font-inter font-normal text-sm text-primary'>Login with Google</p>
+               </div>
               
               <div className='mt-6'>
                 <p className='font-inter font-bold text-base text-secondary mb-2'>Email</p>
