@@ -40,7 +40,12 @@ function Login() {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        navigate('/home')
+
+        if(user.emailVerified){
+          navigate('/home')
+        }else{
+          toast("Please verify your email")
+        }
       })
       .catch((error) => {
         const errorCode = error.code;
