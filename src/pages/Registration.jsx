@@ -3,7 +3,7 @@ import Image from '../components/Image'
 import Man from "../assets/pepoles.png"
 import {FaRegEyeSlash} from "react-icons/fa"
 import {BsFillEyeFill} from "react-icons/bs"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -12,25 +12,26 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 function Registration() {
   const auth = getAuth();
-  let [eye,setEye] = useState(false)
-  let [regData,setRegData]  = useState({userName:"",userEmail:"",userPassword:""})
+  const navigate = useNavigate()
+  const [eye,setEye] = useState(false)
+  const [regData,setRegData]  = useState({userName:"",userEmail:"",userPassword:""})
  
-  let [nameError,setNameError] =useState("")
-  let [emailError,setEmailError] =useState("")
-  let [passwordError,setPasswordError] =useState("")
+  const [nameError,setNameError] =useState("")
+  const [emailError,setEmailError] =useState("")
+  const [passwordError,setPasswordError] =useState("")
    
-  let handleInputChange =(e)=>{
+  const handleInputChange =(e)=>{
      setRegData({...regData,[e.target.name]:e.target.value})
   }
 
-  let handleSubmit =()=>{
-
-    let isemail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    let isLowercase = /^(?=.*[a-z]).*$/
-    let isNumber = /^(?=.*[0-9]).*$/
-    let isContainsSymbol = /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/
-    let isValidLength = /^.{6,16}$/
-    let isPassword   = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/
+  const handleSubmit =()=>{
+   
+    const isemail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const isLowercase = /^(?=.*[a-z]).*$/
+    const isNumber = /^(?=.*[0-9]).*$/
+    const isContainsSymbol = /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/
+    const isValidLength = /^.{6,16}$/
+    const isPassword   = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/
    
     
    if(!regData.userName){
@@ -69,9 +70,11 @@ function Registration() {
 if(regData.userEmail && regData.userName && regData.userPassword && isemail.test(regData.userEmail) && isPassword.test(regData.userPassword) ){
   createUserWithEmailAndPassword(auth, regData.userEmail, regData.userPassword)
     .then((userCredential) => {
-      // Signed up 
       const user = userCredential.user;
-      toast.success('Sing-in sucessfull')
+      setTimeout(()=>{
+        navigate('/')
+      },3000)
+      toast.success('Registration sucessfull please varify your accout')
     })
     .catch((error) => {
       const errorCode = error.code;
