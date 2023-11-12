@@ -7,12 +7,14 @@ import Goggle from "../assets/g.png"
 import Flex from "../components/Flex"
 import { Link, useNavigate } from 'react-router-dom'
 
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword,GoogleAuthProvider ,signInWithPopup } from "firebase/auth";
 import { toast } from 'react-toastify'
 
 
 function Login() {
   const auth = getAuth();
+  const provider = new GoogleAuthProvider();
+
   const [eye,setEye] = useState(false)
   const [logData,setLogData] = useState({userEmail:"",userPassword: ""})
   const navigate = useNavigate()
@@ -23,6 +25,8 @@ function Login() {
   const handleInputChange =(e)=>{
     setLogData({...logData,[e.target.name]:e.target.value})
   }
+
+
   const handleSubmit =()=>{
     if(!logData.userEmail){
      setEmailError("Please enter a Email")
@@ -40,7 +44,6 @@ function Login() {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-
         if(user.emailVerified){
           navigate('/home')
         }else{
@@ -55,13 +58,21 @@ function Login() {
       });
     }
   }
+
+  const handleGoggle =()=>{
+   
+  signInWithPopup(auth, provider)
+    .then((result) => {
+     navigate('/home')
+    })
+  }
   return (
     <>
      <div className='flex flex-col-reverse md:flex-row gap-y-5 py-8 md:py-0'>
        <div className='md:w-5/12 flex justify-center items-center'>
           <div className='w-full pl-10'>
               <h1 className='font-inter font-bold text-3xl text-primary'>Welcome To Ch<span className='text-[#4E4E4E]'>att.</span></h1>
-               <div className='flex mt-4 items-center gap-x-2 border border-gray w-[220px] justify-center rounded-[5px] py-1'>
+               <div onClick={handleGoggle}  className='flex cursor-pointer mt-4 items-center gap-x-2 border border-gray w-[220px] justify-center rounded-[5px] py-1'>
                  <img className='w-10' src={Goggle} alt="" />
                  <p className='font-inter font-normal text-sm text-primary'>Login with Google</p>
                </div>
