@@ -1,18 +1,30 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getAuth, signOut } from "firebase/auth";
+import { useDispatch, useSelector } from 'react-redux';
+import { loggedUser } from '../slices/userSlice';
 
 function Home() {
   const auth = getAuth();
-  const navigate =useNavigate()
   
+  const dispatch =useDispatch()
+  const userData = useSelector((state)=>state.activeUser.value)
+  const navigate =useNavigate()
+ 
   const handleLogout =()=>{
-
     signOut(auth).then(() => {
+      localStorage.removeItem("user")
+      dispatch(loggedUser(null))
       navigate("/")
-    }).catch((error) => {  
+    }).catch((error) =>{  
     });
   }
+
+  useEffect(()=>{
+    if(userData == null){
+      navigate("/")
+    }
+  },[])
 
 
   return (

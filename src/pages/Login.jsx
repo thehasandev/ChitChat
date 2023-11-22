@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from '../components/Image'
 import Man from "../assets/pepoles.png"
 import {FaRegEyeSlash} from "react-icons/fa"
@@ -6,18 +6,21 @@ import {BsFillEyeFill} from "react-icons/bs"
 import Goggle from "../assets/g.png"
 import Flex from "../components/Flex"
 import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { loggedUser } from '../slices/userSlice'
 
 import { getAuth, signInWithEmailAndPassword,GoogleAuthProvider ,signInWithPopup } from "firebase/auth";
 import { toast } from 'react-toastify'
 
-
 function Login() {
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
-
+  
+  const navigate = useNavigate()
+  const dispatch =useDispatch()
   const [eye,setEye] = useState(false)
   const [logData,setLogData] = useState({userEmail:"",userPassword: ""})
-  const navigate = useNavigate()
+  const userData = useSelector((state)=>state.activeUser.value)
 
   const [emailError,setEmailError] = useState("")
   const [passwordError,setPasswordError] = useState("")
@@ -43,7 +46,8 @@ function Login() {
       signInWithEmailAndPassword(auth, logData.userEmail, logData.userPassword)
       .then((userCredential) => {
         const user = userCredential.user;
-        
+        dispatch(loggedUser(user))
+        localStorage.setItem("user",JSON.stringify(user))
         if(user.emailVerified){
           navigate('/home')
         }else{
@@ -66,6 +70,12 @@ function Login() {
      navigate('/home')
     })
   }
+
+  useEffect(()=>{
+    if(userData != null){
+      navigate("/home")
+    }
+  })
   return (
     <>
      <div className='flex flex-col-reverse md:flex-row gap-y-5 py-8 md:py-0'>
@@ -128,7 +138,6 @@ function Login() {
         <div className='bg-black/20 absolute top-0 left-0 md:w-full md:h-full'></div>
        </div>
      </div>
-
     </>
   )
 }

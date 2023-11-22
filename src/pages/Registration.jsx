@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from '../components/Image'
 import Man from "../assets/pepoles.png"
 import {FaRegEyeSlash} from "react-icons/fa"
@@ -9,15 +9,18 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Rings } from 'react-loader-spinner'
 
 import { getAuth, createUserWithEmailAndPassword,sendEmailVerification  } from "firebase/auth";
+import { useSelector } from 'react-redux'
 
 
 function Registration() {
   const auth = getAuth();
+
   const navigate = useNavigate()
   const [eye,setEye] = useState(false)
   const [regData,setRegData]  = useState({userName:"",userEmail:"",userPassword:""})
   const [loader,setLoader] =useState(false)
- 
+
+  const userData = useSelector((state)=>state.activeUser.value)
   const [nameError,setNameError] =useState("")
   const [emailError,setEmailError] =useState("")
   const [passwordError,setPasswordError] =useState("")
@@ -83,6 +86,12 @@ if(regData.userEmail && regData.userName && regData.userPassword && isemail.test
     });
 }
   }
+
+  useEffect(()=>{
+   if(userData != null){
+    navigate("/")
+   }
+  },[])
 
   return (
     <>
