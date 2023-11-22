@@ -42,8 +42,8 @@ function Login() {
     if(logData.userEmail && logData.userPassword){
       signInWithEmailAndPassword(auth, logData.userEmail, logData.userPassword)
       .then((userCredential) => {
-        // Signed in 
         const user = userCredential.user;
+        
         if(user.emailVerified){
           navigate('/home')
         }else{

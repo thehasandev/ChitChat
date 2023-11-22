@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getAuth, signOut } from "firebase/auth";
 
@@ -12,8 +12,9 @@ function Home() {
       navigate("/")
     }).catch((error) => {  
     });
-   
   }
+
+
   return (
     <div>
       <button onClick={handleLogout} className='text-2xl px-4 py-2 bg-green-500 rounded-lg text-white'>Log out</button>
