@@ -6,6 +6,7 @@ import {BsFillEyeFill} from "react-icons/bs"
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Rings } from 'react-loader-spinner'
 
 import { getAuth, createUserWithEmailAndPassword,sendEmailVerification  } from "firebase/auth";
 
@@ -15,6 +16,7 @@ function Registration() {
   const navigate = useNavigate()
   const [eye,setEye] = useState(false)
   const [regData,setRegData]  = useState({userName:"",userEmail:"",userPassword:""})
+  const [loader,setLoader] =useState(false)
  
   const [nameError,setNameError] =useState("")
   const [emailError,setEmailError] =useState("")
@@ -25,13 +27,10 @@ function Registration() {
   }
 
   const handleSubmit =()=>{
-   
     const isemail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
     const isValidLength = /^.{6,16}$/
     
    
-    
    if(!regData.userName){
     setNameError("Please enter a Name")
    }else{
@@ -60,17 +59,18 @@ function Registration() {
 
 
 if(regData.userEmail && regData.userName && regData.userPassword && isemail.test(regData.userEmail) && isValidLength.test(regData.userPassword) ){
+  setLoader(true)
   createUserWithEmailAndPassword(auth, regData.userEmail, regData.userPassword)
-    .then((userCredential) => {
+    .then((userCredential) =>{
+     setTimeout(() => {
+      navigate('/')
+     }, 3000);
       sendEmailVerification(auth.currentUser)
-      .then(() => {
-        
+      .then(()=>{
+  
       });
-      const user = userCredential.user;
-      setTimeout(()=>{
-        navigate('/')
-
-      },3000)
+     
+  
       toast.success('Registration sucessfull please varify your email')
       setRegData({userName:"",userEmail:"",userPassword:""})
     })
@@ -82,12 +82,25 @@ if(regData.userEmail && regData.userName && regData.userPassword && isemail.test
     }
     });
 }
-    
-
   }
 
   return (
     <>
+    {
+      loader ? 
+      <div className='h-[100vh] w-full flex justify-center items-center'>
+        <Rings
+          height="200"
+          width="200"
+          color="#4fa94d"
+          radius="6"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          ariaLabel="rings-loading"
+        />
+      </div>
+      :
      <div className='flex flex-col-reverse md:flex-row gap-y-5 py-8 md:py-0'>
        <div className='md:w-5/12 flex justify-center items-center'>
           <div className='w-full pl-10'>
@@ -137,6 +150,8 @@ if(regData.userEmail && regData.userName && regData.userPassword && isemail.test
         <div className='bg-black/20 absolute top-0 left-0 md:w-full md:h-full'></div>
        </div>
      </div>
+
+    }
 
     </>
   )
