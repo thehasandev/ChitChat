@@ -1,12 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { IoSearchOutline } from "react-icons/io5";
 import Flex from './Flex';
 import Image from "../components/Image"
 import c1 from "../assets/p1.png"
+import { getDatabase, ref, onValue } from "firebase/database";
+import { useSearchParams } from 'react-router-dom';
 
 
 function Peopels() {
+  const [userList,setUserList]= useState([])
+  const db = getDatabase();
+
+  useEffect(()=>{
+    const userRef = ref(db, 'users');
+      onValue(userRef, (snapshot) => {
+        let arr =[]
+         snapshot.forEach((item)=>{
+            arr.push(item.val());
+         })
+         setUserList(arr)
+      });
+  },[])
   return (
     <div className='w-[384px] h-[505px] p-5 bg-white shadow-lg rounded-[10px] m-5'>
      <h2 className='flex font-inter font-semibold text-2xl text-secondary justify-between items-center'>People <span><BsThreeDotsVertical/></span></h2>
@@ -16,18 +31,22 @@ function Peopels() {
       </div>
 
       <div className='mt-6 overflow-y-scroll box h-[368px] pr-4 '>
-
-        <Flex className="justify-between items-center mb-4">
-          <Flex className="items-center gap-x-4">
-            <div>
-              <Image src={c1}/>
-            </div>
-            <div>
-              <h2 className='font-inter font-semibold text-lg text-secondary'>Jenny Wilson</h2>
-            </div>
-          </Flex>
-          <button className='font-inter font-normal text-sm bg-primary px-2 py-2 rounded-[2px] text-white'>Add Friend</button>
-        </Flex> 
+      
+      {
+        userList.map((item)=>(
+          <Flex className="justify-between items-center mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image className="w-10 h-10 rounded-full" src={item.userImg}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>{item.userName}</h2>
+              </div>
+            </Flex>
+            <button className='font-inter font-normal text-sm bg-primary px-2 py-2 rounded-[2px] text-white'>Add Friend</button>
+          </Flex> 
+        ))
+      }
 
 
      </div>
