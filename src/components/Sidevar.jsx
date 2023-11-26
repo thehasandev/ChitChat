@@ -8,7 +8,7 @@ import { RiLogoutBoxRFill } from "react-icons/ri";
 import Flex from "../components/Flex"
 import profile from "../assets/profile.png"
 
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { getAuth, signOut } from "firebase/auth";
 import { useDispatch, useSelector } from 'react-redux';
 import { loggedUser } from '../slices/userSlice';
@@ -48,33 +48,40 @@ function Sidevar() {
 
       </Flex>
 
+    <Link to="/home">
       <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-16 bg-primary text-white rounded-[5px] pl-3 pr-6 py-2.5'>
         <TiHome size={22} />
         <p className='font-intel font-semibold  text-base'>Home</p>
       </div>
+    </Link>
 
+    <Link to="/home/chat">
       <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-8 bg-primary text-white rounded-[5px] pl-3 pr-6 py-2.5'>
         <FiMessageSquare size={22} />
         <p className='font-intel font-semibold  text-base'>Chat</p>
       </div>
+    </Link>
 
-     
+    <Link to="/home/group">
       <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-8 bg-primary text-white rounded-[5px] pl-3 pr-6 py-2.5'>
         <HiUsers size={22}/>
         <p className='font-intel font-semibold  text-base'>Group</p>
       </div>
+    </Link>
 
-     
+    <Link to="/home/friends">
       <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-8 bg-primary text-white rounded-[5px] pl-3 pr-6 py-2.5'>
         <LuUser2 size={22}/>
         <p className='font-intel font-semibold  text-base'>Friends</p>
       </div>
+    </Link>
 
-     
+    <Link to="/home/people">
       <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-8 bg-primary text-white rounded-[5px] pl-3 pr-6 py-2.5'>
         <PiUsersThreeFill size={22} />
         <p className='font-intel font-semibold  text-base'>People</p>
       </div>
+    </Link>
 
       <div onClick={handleLogOut} className='flex w-32 cursor-pointer items-center gap-x-2 mt-32  rounded-[5px] pl-3 pr-6 py-2.5'>
         <RiLogoutBoxRFill size={30} className='text-primary'/>
