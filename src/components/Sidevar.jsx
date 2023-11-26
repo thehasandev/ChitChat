@@ -34,6 +34,8 @@ function Sidevar() {
       navigate("/")
     }
   },[])
+
+
   return (
 
     <div className=' h-screen bg-white shadow-xl px-8'>
@@ -43,41 +45,41 @@ function Sidevar() {
         </div>
         <div>
           <h4 className='font-intel font-semibold text-base text-primary '>Paula Mora</h4>
-          <p className='font-intel font-normal text-sm text-secondary '>Edit Profile</p>
+          <p className='font-intel font-normal text-sm text-[#444444] '>Edit Profile</p>
         </div>
 
       </Flex>
 
     <Link to="/home">
-      <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-16 bg-primary text-white rounded-[5px] pl-3 pr-6 py-2.5'>
+      <div className={`flex w-32 cursor-pointer items-center gap-x-2 mt-16  rounded-[5px] pl-3 pr-6 py-2.5 ${window.location.pathname == "/home" ? "bg-primary text-white" : "bg-transparent text-secondary"}`}>
         <TiHome size={22} />
         <p className='font-intel font-semibold  text-base'>Home</p>
       </div>
     </Link>
 
     <Link to="/home/chat">
-      <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-8 bg-primary text-white rounded-[5px] pl-3 pr-6 py-2.5'>
+      <div className={`flex w-32 cursor-pointer items-center gap-x-2 mt-8  rounded-[5px] pl-3 pr-6 py-2.5 ${window.location.pathname == "/home/chat" ? "bg-primary text-white" : "bg-transparent text-secondary"}`}>
         <FiMessageSquare size={22} />
         <p className='font-intel font-semibold  text-base'>Chat</p>
       </div>
     </Link>
 
     <Link to="/home/group">
-      <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-8 bg-primary text-white rounded-[5px] pl-3 pr-6 py-2.5'>
+      <div className={`flex w-32 cursor-pointer items-center gap-x-2 mt-8   rounded-[5px] pl-3 pr-6 py-2.5 ${window.location.pathname == "/home/group" ? "bg-primary text-white" : "bg-transparent text-secondary"}`}>
         <HiUsers size={22}/>
         <p className='font-intel font-semibold  text-base'>Group</p>
       </div>
     </Link>
 
     <Link to="/home/friends">
-      <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-8 bg-primary text-white rounded-[5px] pl-3 pr-6 py-2.5'>
+      <div className={`flex w-32 cursor-pointer items-center gap-x-2 mt-8  rounded-[5px] pl-3 pr-6 py-2.5 ${window.location.pathname == "/home/friends" ? "bg-primary text-white" : "bg-transparent text-secondary"}`}>
         <LuUser2 size={22}/>
         <p className='font-intel font-semibold  text-base'>Friends</p>
       </div>
     </Link>
 
     <Link to="/home/people">
-      <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-8 bg-primary text-white rounded-[5px] pl-3 pr-6 py-2.5'>
+      <div className={`flex w-32 cursor-pointer items-center gap-x-2 mt-8  rounded-[5px] pl-3 pr-6 py-2.5 ${window.location.pathname == "/home/people" ? "bg-primary text-white" : "bg-transparent text-secondary"}`}>
         <PiUsersThreeFill size={22} />
         <p className='font-intel font-semibold  text-base'>People</p>
       </div>
