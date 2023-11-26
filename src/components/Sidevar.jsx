@@ -47,32 +47,32 @@ function Sidevar() {
 
       </Flex>
 
-      <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-16 bg-primary rounded-[5px] pl-3 pr-6 py-2.5'>
-        <TiHome size={22} className='text-white'/>
-        <p className='font-intel font-semibold text-white text-base'>Home</p>
+      <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-16 bg-primary text-white rounded-[5px] pl-3 pr-6 py-2.5'>
+        <TiHome size={22} />
+        <p className='font-intel font-semibold  text-base'>Home</p>
       </div>
 
-      <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-8 bg-primary rounded-[5px] pl-3 pr-6 py-2.5'>
-        <FiMessageSquare size={22} className='text-white'/>
-        <p className='font-intel font-semibold text-white text-base'>Chat</p>
-      </div>
-
-     
-      <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-8 bg-primary rounded-[5px] pl-3 pr-6 py-2.5'>
-        <HiUsers size={22} className='text-white'/>
-        <p className='font-intel font-semibold text-white text-base'>Group</p>
+      <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-8 bg-primary text-white rounded-[5px] pl-3 pr-6 py-2.5'>
+        <FiMessageSquare size={22} />
+        <p className='font-intel font-semibold  text-base'>Chat</p>
       </div>
 
      
-      <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-8 bg-primary rounded-[5px] pl-3 pr-6 py-2.5'>
-        <LuUser2 size={22} className='text-white'/>
-        <p className='font-intel font-semibold text-white text-base'>Friends</p>
+      <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-8 bg-primary text-white rounded-[5px] pl-3 pr-6 py-2.5'>
+        <HiUsers size={22}/>
+        <p className='font-intel font-semibold  text-base'>Group</p>
       </div>
 
      
-      <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-8 bg-primary rounded-[5px] pl-3 pr-6 py-2.5'>
-        <PiUsersThreeFill size={22} className='text-white'/>
-        <p className='font-intel font-semibold text-white text-base'>People</p>
+      <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-8 bg-primary text-white rounded-[5px] pl-3 pr-6 py-2.5'>
+        <LuUser2 size={22}/>
+        <p className='font-intel font-semibold  text-base'>Friends</p>
+      </div>
+
+     
+      <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-8 bg-primary text-white rounded-[5px] pl-3 pr-6 py-2.5'>
+        <PiUsersThreeFill size={22} />
+        <p className='font-intel font-semibold  text-base'>People</p>
       </div>
 
       <div onClick={handleLogOut} className='flex w-32 cursor-pointer items-center gap-x-2 mt-32  rounded-[5px] pl-3 pr-6 py-2.5'>
