@@ -35,6 +35,7 @@ function Sidevar() {
     }
   },[])
   return (
+
     <div className=' h-screen bg-white shadow-xl px-8'>
       <Flex className="items-center w-32 gap-x-2 mt-5 ">
         <div>
@@ -79,8 +80,6 @@ function Sidevar() {
         <RiLogoutBoxRFill size={30} className='text-primary'/>
         <p className='font-intel font-semibold text-primary text-sm'>Log Out</p>
       </div>
-
-     
 
     </div>
   )
