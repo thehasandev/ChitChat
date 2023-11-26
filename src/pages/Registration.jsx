@@ -63,9 +63,9 @@ function Registration() {
 
 
 if(regData.userEmail && regData.userName && regData.userPassword && isemail.test(regData.userEmail) && isValidLength.test(regData.userPassword) ){
-  setLoader(true)
   createUserWithEmailAndPassword(auth, regData.userEmail, regData.userPassword)
     .then((userCredential) =>{
+      setLoader(true)
      setTimeout(() => {
       navigate('/')
      }, 3000);
