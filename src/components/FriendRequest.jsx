@@ -3,7 +3,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { IoSearchOutline } from "react-icons/io5";
 import Flex from './Flex';
 import Image from "../components/Image"
-import c1 from "../assets/g1.png"
+import c1 from "../assets/fr.png"
 
 function FriendRequest() {
   return (
@@ -21,12 +21,637 @@ function FriendRequest() {
                 <Image src={c1}/>
               </div>
               <div>
-                <h2 className='font-inter font-semibold text-lg text-secondary'>Jenny Wilson</h2>
-                <p className='font-inter font-normal text-sm text-offwhite'>Love You.....</p>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
               </div>
             </Flex>
-            <p className='font-inter font-normal text-xs text-offwhite mt-1'>10:30 PM</p>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
           </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+          <Flex className="justify-between mb-4">
+            <Flex className="items-center gap-x-4">
+              <div>
+                <Image src={c1}/>
+              </div>
+              <div>
+                <h2 className='font-inter font-semibold text-lg text-secondary'>Eddie Lake</h2>
+              </div>
+            </Flex>
+            <div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1 bg-primary text-white rounded-[2px]'>Confirm</button>
+              </div>
+              <div>
+                <button className='font-inter font-medium text-sm px-2 py-1  text-secondary rounded-[2px]'>Cancel</button>
+              </div>
+           
+            </div>
+          </Flex> 
+
+          
+      
+
+          
+       
+
+          
+       
 
           
       </div>

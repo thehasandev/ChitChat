@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Rings } from 'react-loader-spinner'
 import Flex from "../components/Flex"
+import { getDatabase, ref, set } from "firebase/database";
 
 import { getAuth, createUserWithEmailAndPassword,sendEmailVerification  } from "firebase/auth";
 import { useSelector } from 'react-redux'
@@ -15,6 +16,7 @@ import { useSelector } from 'react-redux'
 
 function Registration() {
   const auth = getAuth();
+  const db = getDatabase();
 
   const navigate = useNavigate()
   const [eye,setEye] = useState(false)
@@ -65,6 +67,11 @@ function Registration() {
 if(regData.userEmail && regData.userName && regData.userPassword && isemail.test(regData.userEmail) && isValidLength.test(regData.userPassword) ){
   createUserWithEmailAndPassword(auth, regData.userEmail, regData.userPassword)
     .then((userCredential) =>{
+      set(ref(db, 'users/'+userCredential.user.uid), {
+        userName: regData.userName,
+        userEmail:userCredential.user.email,
+        userImg : "https://firebasestorage.googleapis.com/v0/b/chitchat-e18bc.appspot.com/o/download.png?alt=media&token=a3957fec-8026-4076-b167-bf5c8d47a9ea"
+      });
       setLoader(true)
      setTimeout(() => {
       navigate('/')

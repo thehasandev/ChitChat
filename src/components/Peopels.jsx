@@ -17,134 +17,16 @@ function Peopels() {
 
       <div className='mt-6 overflow-y-scroll box h-[368px] pr-4 '>
 
-        <Flex className="justify-between mb-4">
+        <Flex className="justify-between items-center mb-4">
           <Flex className="items-center gap-x-4">
             <div>
               <Image src={c1}/>
             </div>
             <div>
               <h2 className='font-inter font-semibold text-lg text-secondary'>Jenny Wilson</h2>
-              <p className='font-inter font-normal text-sm text-offwhite'>Love You.....</p>
             </div>
           </Flex>
-          <p className='font-inter font-normal text-xs text-offwhite mt-1'>10:30 PM</p>
-        </Flex> 
-
-        <Flex className="justify-between mb-4">
-          <Flex className="items-center gap-x-4">
-            <div>
-              <Image src={c1}/>
-            </div>
-            <div>
-              <h2 className='font-inter font-semibold text-lg text-secondary'>Jenny Wilson</h2>
-              <p className='font-inter font-normal text-sm text-offwhite'>Love You.....</p>
-            </div>
-          </Flex>
-          <p className='font-inter font-normal text-xs text-offwhite mt-1'>10:30 PM</p>
-        </Flex> 
-
-        <Flex className="justify-between mb-4">
-          <Flex className="items-center gap-x-4">
-            <div>
-              <Image src={c1}/>
-            </div>
-            <div>
-              <h2 className='font-inter font-semibold text-lg text-secondary'>Jenny Wilson</h2>
-              <p className='font-inter font-normal text-sm text-offwhite'>Love You.....</p>
-            </div>
-          </Flex>
-          <p className='font-inter font-normal text-xs text-offwhite mt-1'>10:30 PM</p>
-        </Flex> 
-
-        <Flex className="justify-between mb-4">
-          <Flex className="items-center gap-x-4">
-            <div>
-              <Image src={c1}/>
-            </div>
-            <div>
-              <h2 className='font-inter font-semibold text-lg text-secondary'>Jenny Wilson</h2>
-              <p className='font-inter font-normal text-sm text-offwhite'>Love You.....</p>
-            </div>
-          </Flex>
-          <p className='font-inter font-normal text-xs text-offwhite mt-1'>10:30 PM</p>
-        </Flex> 
-
-        <Flex className="justify-between mb-4">
-          <Flex className="items-center gap-x-4">
-            <div>
-              <Image src={c1}/>
-            </div>
-            <div>
-              <h2 className='font-inter font-semibold text-lg text-secondary'>Jenny Wilson</h2>
-              <p className='font-inter font-normal text-sm text-offwhite'>Love You.....</p>
-            </div>
-          </Flex>
-          <p className='font-inter font-normal text-xs text-offwhite mt-1'>10:30 PM</p>
-        </Flex> 
-
-        <Flex className="justify-between mb-4">
-          <Flex className="items-center gap-x-4">
-            <div>
-              <Image src={c1}/>
-            </div>
-            <div>
-              <h2 className='font-inter font-semibold text-lg text-secondary'>Jenny Wilson</h2>
-              <p className='font-inter font-normal text-sm text-offwhite'>Love You.....</p>
-            </div>
-          </Flex>
-          <p className='font-inter font-normal text-xs text-offwhite mt-1'>10:30 PM</p>
-        </Flex> 
-
-        <Flex className="justify-between mb-4">
-          <Flex className="items-center gap-x-4">
-            <div>
-              <Image src={c1}/>
-            </div>
-            <div>
-              <h2 className='font-inter font-semibold text-lg text-secondary'>Jenny Wilson</h2>
-              <p className='font-inter font-normal text-sm text-offwhite'>Love You.....</p>
-            </div>
-          </Flex>
-          <p className='font-inter font-normal text-xs text-offwhite mt-1'>10:30 PM</p>
-        </Flex> 
-
-        <Flex className="justify-between mb-4">
-          <Flex className="items-center gap-x-4">
-            <div>
-              <Image src={c1}/>
-            </div>
-            <div>
-              <h2 className='font-inter font-semibold text-lg text-secondary'>Jenny Wilson</h2>
-              <p className='font-inter font-normal text-sm text-offwhite'>Love You.....</p>
-            </div>
-          </Flex>
-          <p className='font-inter font-normal text-xs text-offwhite mt-1'>10:30 PM</p>
-        </Flex> 
-
-        <Flex className="justify-between mb-4">
-          <Flex className="items-center gap-x-4">
-            <div>
-              <Image src={c1}/>
-            </div>
-            <div>
-              <h2 className='font-inter font-semibold text-lg text-secondary'>Jenny Wilson</h2>
-              <p className='font-inter font-normal text-sm text-offwhite'>Love You.....</p>
-            </div>
-          </Flex>
-          <p className='font-inter font-normal text-xs text-offwhite mt-1'>10:30 PM</p>
-        </Flex> 
-
-        <Flex className="justify-between mb-4">
-          <Flex className="items-center gap-x-4">
-            <div>
-              <Image src={c1}/>
-            </div>
-            <div>
-              <h2 className='font-inter font-semibold text-lg text-secondary'>Jenny Wilson</h2>
-              <p className='font-inter font-normal text-sm text-offwhite'>Love You.....</p>
-            </div>
-          </Flex>
-          <p className='font-inter font-normal text-xs text-offwhite mt-1'>10:30 PM</p>
+          <button className='font-inter font-normal text-sm bg-primary px-2 py-2 rounded-[2px] text-white'>Add Friend</button>
         </Flex> 
 
 
