@@ -1,0 +1,11 @@
+.box::-webkit-scrollbar{
+    width: 6px;
+    background: gray;
+    height: 10px;
+}
+.box::-webkit-scrollbar-thumb{
+    width: 6px;
+    height: 10px;
+    background: linear-gradient(transparent,#0620e5);
+}
+
