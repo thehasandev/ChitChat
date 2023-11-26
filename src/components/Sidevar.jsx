@@ -4,6 +4,7 @@ import { FiMessageSquare } from "react-icons/fi";
 import { HiUsers } from "react-icons/hi2";
 import { LuUser2 } from "react-icons/lu";
 import { PiUsersThreeFill } from "react-icons/pi";
+import { RiLogoutBoxRFill } from "react-icons/ri";
 import Flex from "../components/Flex"
 import profile from "../assets/profile.png"
 
@@ -47,6 +48,11 @@ function Sidevar() {
       <div className='flex w-32 cursor-pointer items-center gap-x-2 mt-8 bg-primary rounded-[5px] pl-3 pr-6 py-2.5'>
         <PiUsersThreeFill size={22} className='text-white'/>
         <p className='font-intel font-semibold text-white text-base'>People</p>
+      </div>
+
+      <div onClick={handleLogOut} className='flex w-32 cursor-pointer items-center gap-x-2 mt-32  rounded-[5px] pl-3 pr-6 py-2.5'>
+        <RiLogoutBoxRFill size={30} className='text-primary'/>
+        <p className='font-intel font-semibold text-primary text-sm'>Log Out</p>
       </div>
 
      
