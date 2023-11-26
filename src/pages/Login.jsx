@@ -88,7 +88,7 @@ function Login() {
                </div>
               
               <div className='mt-6'>
-                <p className='font-inter font-bold text-base text-secondary mb-2'>Email</p>
+                <p className={`font-inter font-bold text-base  mb-2 ${emailError ? "text-[red]":"text-secondary"}`}>Email</p>
                 <input value={logData.userEmail} onChange={handleInputChange} name='userEmail' type="email" placeholder='Enter your mail'  className='w-10/12 border border-gray p-3.5 rounded-[5px]'/>
                 {
                   emailError &&
@@ -97,7 +97,7 @@ function Login() {
               </div>
 
               <div className='mt-6'>
-                <p className='font-inter font-bold text-base text-secondary mb-2'>Password</p>
+                <p className={`font-inter font-bold text-base  mb-2 ${passwordError ? "text-[red]":"text-secondary"}`}>Password</p>
                 <div className='w-10/12 relative'>
                   <input value={logData.userPassword} onChange={handleInputChange} name='userPassword' type={`${eye ? "text":"password"}`} placeholder='Password'  className='w-full border border-gray p-3.5 rounded-[5px]'/>
                   {
