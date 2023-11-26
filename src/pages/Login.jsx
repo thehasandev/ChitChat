@@ -5,7 +5,7 @@ import {FaRegEyeSlash} from "react-icons/fa"
 import {BsFillEyeFill} from "react-icons/bs"
 import Goggle from "../assets/g.png"
 import Flex from "../components/Flex"
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, json, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { loggedUser } from '../slices/userSlice'
 import { BiLogoGoogle } from "react-icons/bi";
@@ -70,9 +70,13 @@ function Login() {
   const handleGoggle =()=>{
    
   signInWithPopup(auth, provider)
-    .then((result) => {
+  .then((result) => {
+     const user = result.user;
+     dispatch(loggedUser(user))
+     localStorage.setItem("user",JSON.stringify(user))
      navigate('/home')
-    })
+  })
+
   }
 
 
@@ -151,9 +155,9 @@ function Login() {
             </Flex>
               <p className='font-inter font-normal text-[#7A7A7A] text-xs md:text-base mt-6'>Dont’t have an account? <Link to="/sing-up"><span className='text-primary md:text-sm font-semibold'>Sign Up</span></Link></p>
              
-             <div className='md:hidden relative'>
+             <div onClick={handleGoggle} className='md:hidden relative'>
               <Flex className="justify-center md:justify-start mt-8">
-                <button onClick={handleSubmit} className='w-[300px] md:w-10/12 rounded-[2px] bg-sky-500 py-3 text-white font-inter font-normal text-sm '>Singin With Goggle</button>
+                <button  className='w-[300px] md:w-10/12 rounded-[2px] bg-sky-500 py-3 text-white font-inter font-normal text-sm '>Singin With Goggle</button>
               </Flex>
               <BiLogoGoogle size={25} className='absolute top-1/2 text-white -translate-y-1/2 left-2'/>
              </div>
