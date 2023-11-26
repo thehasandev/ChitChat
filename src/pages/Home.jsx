@@ -9,7 +9,7 @@ import FriendRequest from '../components/FriendRequest'
 import Block from '../components/Block'
 function Home() {
   return (
-    <Flex>
+    <Flex className="flex-wrap">
        <Message/>
        <GroupMessage/>
        <Friend/>
