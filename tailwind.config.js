@@ -13,6 +13,7 @@ export default {
         'primary': '#32375C',
         'secondary': '#222222',
         'gray': '#D3D3D3',
+        'offwhite': '#7A7A7A',
       },
     },
   },
