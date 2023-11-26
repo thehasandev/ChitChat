@@ -115,7 +115,7 @@ if(regData.userEmail && regData.userName && regData.userPassword && isemail.test
        <div className='md:w-5/12 flex justify-center items-center'>
           <div className='w-full md:pl-10'>
               <h1 className='font-inter hidden md:block font-bold text-3xl text-primary'>Welcome To Ch<span className='text-[#4E4E4E]'>att.</span></h1>
-              <h1 className='font-inter md:hidden font-bold text-3xl text-primary text-center'>Sing Up</h1>
+              <h1 className='font-inter md:hidden font-bold text-3xl text-primary text-center mb-8'>Sing Up</h1>
               <p className='font-inter hidden md:block font-normal text-xs text-primary mt-2'>Free register and you can enjoy it</p>
               
               <div className='mt-6'>
@@ -142,6 +142,8 @@ if(regData.userEmail && regData.userName && regData.userPassword && isemail.test
 
                   }
                 </div>
+
+
                 <p className='font-inter font-normal text-red-500 text-xs mt-1'>{passwordError}</p>
               </div>
 
@@ -150,7 +152,7 @@ if(regData.userEmail && regData.userName && regData.userPassword && isemail.test
                 <p className='font-inter font-normal text-base text-[#4E4E4E]'>Remember Me</p>
               </div>
               <Flex className="justify-center md:justify-start">
-                 <button onClick={handleSubmit} className='md:w-10/12 px-10 rounded-[2px] bg-primary py-3 text-white font-inter font-semibold text-lg mt-7'>Sign Up</button>
+                 <button onClick={handleSubmit} className='w-10/12 px-10 rounded-[2px] bg-primary py-3 text-white font-inter font-semibold text-lg mt-7'>Sign Up</button>
               </Flex>
               <p className='font-inter font-normal text-[#7A7A7A] text-base md:text-left text-center mt-6'>Have an account? <Link to="/"><span className='text-primary text-sm font-semibold'>Sign In</span></Link></p>
           </div>
