@@ -38,7 +38,7 @@ function Peopels() {
         <IoSearchOutline size={20} className='absolute top-1/2 -translate-y-1/2 left-2'/>
       </div>
 
-      <div className='mt-6 overflow-y-scroll box h-[368px] pr-4 '>
+      <div className='mt-6 overflow-y-scroll box h-[368px] pr-4 relative'>
       
       {
         input.length>0 ?
@@ -59,7 +59,7 @@ function Peopels() {
             </Flex> 
           ))
           :
-         <h1>Result Not Fount</h1>  
+         <h1 className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-inter text-lg font-normal text-secondary'>Result Not Fount</h1>  
         
         :
 
