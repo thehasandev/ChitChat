@@ -51,6 +51,7 @@ function Login() {
         const user = userCredential.user;
         dispatch(loggedUser(user))
         localStorage.setItem("user",JSON.stringify(user))
+        
         if(user.emailVerified){
           navigate('/home')
         }else{
@@ -74,11 +75,14 @@ function Login() {
     })
   }
 
+
   useEffect(()=>{
-    if(userData != null){
-      navigate("/home")
-    }
-  })
+   if(userData != null){
+    navigate("/home")
+   }
+  },[])
+
+
   return (
     <>
      <div className='flex flex-col-reverse items-center md:flex-row gap-y-5 py-8 md:py-0'>
