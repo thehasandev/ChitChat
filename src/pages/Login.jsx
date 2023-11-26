@@ -83,7 +83,7 @@ function Login() {
     <>
      <div className='flex flex-col-reverse items-center md:flex-row gap-y-5 py-8 md:py-0'>
        <div className='md:w-5/12 flex justify-center items-center'>
-          <div className='w-full pl-10'>
+          <div className='w-full md:pl-10'>
               <h1 className='font-inter hidden md:block font-bold text-3xl text-primary'>Welcome To Ch<span className='text-[#4E4E4E]'>att.</span></h1>
               <h1 className='font-inter md:hidden text-center  font-bold text-3xl text-primary'>Login</h1>
               <div className='md:hidden'>
