@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { TiHome } from "react-icons/ti";
 import { FiMessageSquare } from "react-icons/fi";
 import { HiUsers } from "react-icons/hi2";
@@ -8,7 +8,32 @@ import { RiLogoutBoxRFill } from "react-icons/ri";
 import Flex from "../components/Flex"
 import profile from "../assets/profile.png"
 
+import { useNavigate } from 'react-router-dom'
+import { getAuth, signOut } from "firebase/auth";
+import { useDispatch, useSelector } from 'react-redux';
+import { loggedUser } from '../slices/userSlice';
+
 function Sidevar() {
+  const auth = getAuth();
+  
+  const dispatch =useDispatch()
+  const userData = useSelector((state)=>state.activeUser.value)
+  const navigate =useNavigate()
+
+  let handleLogOut=()=>{
+    signOut(auth).then(() => {
+      localStorage.removeItem("user")
+      dispatch(loggedUser(null))
+      navigate("/")
+    }).catch((error) =>{  
+    });
+  }
+
+  useEffect(()=>{
+    if(userData == null){
+      navigate("/")
+    }
+  },[])
   return (
     <div className=' h-screen bg-white shadow-xl px-8'>
       <Flex className="items-center w-32 gap-x-2 mt-5 ">
