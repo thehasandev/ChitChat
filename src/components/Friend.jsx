@@ -1,8 +1,10 @@
 import React from 'react'
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { IoSearchOutline } from "react-icons/io5";
+
 import Flex from './Flex';
 import Image from "../components/Image"
+
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { IoSearchOutline } from "react-icons/io5";
 import c1 from "../assets/f1.png"
 
 
