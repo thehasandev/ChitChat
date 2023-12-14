@@ -1,26 +1,42 @@
-import React, { useEffect } from 'react'
+import React, { useEffect ,createRef, useState} from 'react'
 import { TiHome } from "react-icons/ti";
 import { FiMessageSquare } from "react-icons/fi";
 import { HiUsers } from "react-icons/hi2";
 import { LuUser2 } from "react-icons/lu";
 import { PiUsersThreeFill } from "react-icons/pi";
 import { RiLogoutBoxRFill } from "react-icons/ri";
-import Flex from "../components/Flex"
-import Modal from 'react-modal';
 
 import { Link, useNavigate } from 'react-router-dom'
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth, signOut,updateProfile } from "firebase/auth";
 import { useDispatch, useSelector } from 'react-redux';
 import { loggedUser } from '../slices/userSlice';
 
-
+import Flex from "../components/Flex"
+import Modal from 'react-modal';
 Modal.setAppElement('#root');
+
+import Cropper from "react-cropper";
+import "cropperjs/dist/cropper.css";
+
+import { getStorage, ref, uploadString,getDownloadURL } from "firebase/storage";
+
+
+
+
+const defaultSrc =
+  "https://raw.githubusercontent.com/roadmanfong/react-cropper/master/example/img/child.jpg";
+
+
 
 function Sidevar() {
   const auth = getAuth();
+  const storage = getStorage();
   
   const dispatch =useDispatch()
   const userData = useSelector((state)=>state.activeUser.value)
+  const storageRef = ref(storage, userData.uid);
+
+  
 
 
 
@@ -41,18 +57,56 @@ function Sidevar() {
     }
   },[])
 
-
   const [modalIsOpen, setIsOpen] = React.useState(false);
-
   function openModal() {
     setIsOpen(true);
   }
-
-
-
   function closeModal() {
     setIsOpen(false);
   }
+
+  const [image, setImage] = useState("");
+
+
+  const [cropData, setCropData] = useState("#");
+  const cropperRef = createRef();
+  const onChange = (e) => {
+    e.preventDefault();
+    let files;
+    if (e.dataTransfer) {
+      files = e.dataTransfer.files;
+    } else if (e.target) {
+      files = e.target.files;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      setImage(reader.result);
+    };
+    reader.readAsDataURL(files[0]);
+  };
+
+  const getCropData = () => {
+    if (typeof cropperRef.current?.cropper !== "undefined") {
+      setCropData(cropperRef.current?.cropper.getCroppedCanvas().toDataURL());
+    }
+
+    // Data URL string
+    const message4 = cropperRef.current?.cropper.getCroppedCanvas().toDataURL()
+    uploadString(storageRef, message4, 'data_url').then((snapshot) => {
+      getDownloadURL(storageRef).then((downloadURL) => {
+        updateProfile(auth.currentUser, {
+          photoURL: downloadURL
+        }).then(()=>{
+          dispatch(loggedUser({ ...userData ,photoURL:downloadURL}))
+          localStorage.setItem(JSON.stringify({...userData,photoURL:downloadURL}))
+        })
+      });
+    })
+  };
+
+
+
+
 
 
   return (
@@ -108,23 +162,55 @@ function Sidevar() {
         <RiLogoutBoxRFill size={30} className='text-primary'/>
         <p className='font-intel font-semibold text-primary text-sm'>Log Out</p>
       </div>
-
     </div>
 
     <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Example Modal"
-        className="h-44 w-96 absolute top-1/2 left-1/2 border-[gray] -translate-x-1/2 -translate-y-1/2 bg-white border-2 px-5 py-6"
+        className=" w-96 absolute top-1/2 left-1/2 border-[gray] -translate-x-1/2 -translate-y-1/2 bg-white border-2 px-5 py-6"
       >
+       <div className='h-[100px] w-[100px] overflow-hidden rounded-full'>
+       {
+        image ?
+    
+        <div className="img-preview"style={{ width: "100px", float: "left", height: "100px" }}></div>
+        :
+        <img src={userData.photoURL}/>
        
-       
-        <h1 className='font-inter text-2xl font-semibold'>Update Your Profile</h1>
-        <input type="file" className='my-4  file:border-0 file:bg-[gray] file:text-base file:font-semibolda file:text-inter file:text-white file:px-4 file:rounded-[2px]  file:py-1 '/>
-
+        
+       }
+       </div>
+        <h1 className='font-inter text-2xl font-semibold my-4'>Update Your Profile</h1>
+        {
+          image &&
+    
+        <Cropper
+              ref={cropperRef}
+              style={{ height:"300px", width: "300px" }}
+              zoomTo={0.5}
+              initialAspectRatio={1}
+              preview=".img-preview"
+              src={image}
+              viewMode={1}
+              minCropBoxHeight={100}
+              minCropBoxWidth={100}
+              background={false}
+              responsive={true}
+              autoCropArea={1}
+              checkOrientation={false} // https://github.com/fengyuanchen/cropperjs/issues/671
+              guides={true}
+            />
+        }
+        <input  onChange={onChange} type="file" className='my-4  file:border-0 file:bg-[gray] file:text-sm file:font-semibolda file:text-inter file:text-white file:px-2 file:rounded-[2px]  file:py-1'/>
+        <button onClick={getCropData} className='font-inter font-medium text-base text-white bg-primary px-6 py-2 rounded-[5px]'>Upload</button>
         
     </Modal>
     </div>
+   
+    
+    
+    
   )
 }
 
