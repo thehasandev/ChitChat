@@ -57,7 +57,7 @@ function Sidevar() {
     }
   },[])
 
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [modalIsOpen, setIsOpen] =useState(false);
   function openModal() {
     setIsOpen(true);
   }
@@ -97,6 +97,7 @@ function Sidevar() {
         updateProfile(auth.currentUser, {
           photoURL: downloadURL
         }).then(()=>{
+          setIsOpen(false)
           dispatch(loggedUser({ ...userData ,photoURL:downloadURL}))
           localStorage.setItem(JSON.stringify({...userData,photoURL:downloadURL}))
         })
@@ -114,11 +115,11 @@ function Sidevar() {
     <div className=' h-screen bg-white shadow-xl px-8'>
       <Flex className="items-center w-32 gap-x-2 mt-5 ">
         <div>
-        <img onClick={openModal} src={userData.photoURL} alt="profile" className='w-9 h-9 rounded-full'/>
+        <img  src={userData.photoURL} alt="profile" className='w-9 h-9 rounded-full'/>
         </div>
-        <div>
+        <div onClick={openModal} className='cursor-pointer'>
           <h4 className='font-intel font-semibold text-base text-primary '>{userData.displayName}</h4>
-          <p className='font-intel font-normal text-sm text-[#444444] '>Edit Profile</p>
+          <p className='font-intel font-normal text-xs text-[#444444] '>Edit Profile</p>
         </div>
 
       </Flex>
@@ -203,7 +204,10 @@ function Sidevar() {
             />
         }
         <input  onChange={onChange} type="file" className='my-4  file:border-0 file:bg-[gray] file:text-sm file:font-semibolda file:text-inter file:text-white file:px-2 file:rounded-[2px]  file:py-1'/>
+        {
+          image &&
         <button onClick={getCropData} className='font-inter font-medium text-base text-white bg-primary px-6 py-2 rounded-[5px]'>Upload</button>
+        }
         
     </Modal>
     </div>
