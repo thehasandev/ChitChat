@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 import { Rings } from 'react-loader-spinner'
 
 import { getDatabase, ref, set } from "firebase/database";
-import { getAuth, createUserWithEmailAndPassword,sendEmailVerification  } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword,sendEmailVerification,updateProfile  } from "firebase/auth";
 
 import Man from "../assets/pepoles.png"
 import 'react-toastify/dist/ReactToastify.css';
@@ -69,31 +69,33 @@ function Registration() {
 if(regData.userEmail && regData.userName && regData.userPassword && isemail.test(regData.userEmail) && isValidLength.test(regData.userPassword) ){
   createUserWithEmailAndPassword(auth, regData.userEmail, regData.userPassword)
     .then((userCredential) =>{
-      set(ref(db, 'users/'+userCredential.user.uid), {
-        userName: regData.userName,
-        userEmail:userCredential.user.email,
-        userImg : "https://firebasestorage.googleapis.com/v0/b/chitchat-e18bc.appspot.com/o/download.png?alt=media&token=a3957fec-8026-4076-b167-bf5c8d47a9ea"
-      });
-      setLoader(true)
-      setTimeout(() => {
-        navigate('/')
-      }, 3000);
-        sendEmailVerification(auth.currentUser)
-        .then(()=>{
-    
-      });
-     
-  
-      toast.success('Registration sucessfull please varify your email')
-      setRegData({userName:"",userEmail:"",userPassword:""})
-    })
+      updateProfile(auth.currentUser, {
+        displayName: regData.userName, photoURL: "https://firebasestorage.googleapis.com/v0/b/chitchat-e18bc.appspot.com/o/download.png?alt=media&token=a3957fec-8026-4076-b167-bf5c8d47a9ea"
+      }).then(()=>{
+        set(ref(db, 'users/'+userCredential.user.uid), {
+          userName: regData.userName,
+          userEmail:userCredential.user.email,
+          userImg : "https://firebasestorage.googleapis.com/v0/b/chitchat-e18bc.appspot.com/o/download.png?alt=media&token=a3957fec-8026-4076-b167-bf5c8d47a9ea"
+        });
+        setLoader(true)
+        setTimeout(() => {
+          navigate('/')
+        }, 3000);
+          sendEmailVerification(auth.currentUser)
+          .then(()=>{
+        });
+        toast.success('Registration sucessfull please varify your email')
+        setRegData({userName:"",userEmail:"",userPassword:""})
+      })
+      })
+
     .catch((error) => {
       const errorCode = error.code;
-
     if(errorCode.includes("email")){
       setEmailError("This Email is already used")
     }
     });
+
 }
   }
 
@@ -151,6 +153,7 @@ if(regData.userEmail && regData.userName && regData.userPassword && isemail.test
 
                     }
                   </div>
+                
 
 
                   <p className='font-inter font-normal text-red-500 text-xs mt-1'>{passwordError}</p>

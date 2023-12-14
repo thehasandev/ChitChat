@@ -69,8 +69,8 @@ function Peopels() {
          <h1 className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-inter text-lg font-normal text-secondary'>Result Not Fount</h1>  
          :
 
-        userList.map((item)=>(
-          <Flex className="justify-between items-center mb-4">
+        userList.map((item,index)=>(
+          <Flex key={index} className="justify-between items-center mb-4">
             <Flex className="items-center gap-x-4">
               <div>
                 <Image className="w-10 h-10 rounded-full" src={item.userImg}/>
