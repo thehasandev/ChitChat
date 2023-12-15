@@ -7,6 +7,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { IoSearchOutline } from "react-icons/io5";
 
 import { getDatabase, ref, onValue } from "firebase/database";
+import { useSelector } from 'react-redux';
 
 
 
@@ -14,15 +15,21 @@ function Peopels() {
   const db = getDatabase();
 
   const [userList,setUserList]= useState([])
+  
   const [searchUserList,setSearchUserList]= useState([])
   const [input,setInput] = useState("")
+  const userData =useSelector((state)=>state.activeUser.value)
+   
+  
 
   useEffect(()=>{
     const userRef = ref(db, 'users');
       onValue(userRef, (snapshot) => {
         let arr =[]
          snapshot.forEach((item)=>{
+          // if(item.key != userData.uid){
             arr.push(item.val());
+          // }
          })
          setUserList(arr)
       });
@@ -54,7 +61,7 @@ function Peopels() {
             <Flex className="justify-between items-center mb-4">
               <Flex className="items-center gap-x-4">
                 <div>
-                  <Image className="w-10 h-10 rounded-full" src={item.userImg}/>
+                  <Image className="w-10 h-10 rounded-full" src={userData.photoURL}/>
                 </div>
                 <div>
                   <h2 className='font-inter font-semibold text-lg text-secondary'>{item.userName}</h2>
@@ -73,7 +80,7 @@ function Peopels() {
           <Flex key={index} className="justify-between items-center mb-4">
             <Flex className="items-center gap-x-4">
               <div>
-                <Image className="w-10 h-10 rounded-full" src={item.userImg}/>
+                <Image className="w-10 h-10 rounded-full" src={userData.photoURL}/>
               </div>
               <div>
                 <h2 className='font-inter font-semibold text-lg text-secondary'>{item.userName}</h2>
