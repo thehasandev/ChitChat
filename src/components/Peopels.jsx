@@ -61,7 +61,7 @@ function Peopels() {
             <Flex className="justify-between items-center mb-4">
               <Flex className="items-center gap-x-4">
                 <div>
-                  <Image className="w-10 h-10 rounded-full" src={userData.photoURL}/>
+                  <Image className="w-10 h-10 rounded-full" src={item.userImg}/>
                 </div>
                 <div>
                   <h2 className='font-inter font-semibold text-lg text-secondary'>{item.userName}</h2>
@@ -80,7 +80,7 @@ function Peopels() {
           <Flex key={index} className="justify-between items-center mb-4">
             <Flex className="items-center gap-x-4">
               <div>
-                <Image className="w-10 h-10 rounded-full" src={userData.photoURL}/>
+                <Image className="w-10 h-10 rounded-full" src={item.userImg}/>
               </div>
               <div>
                 <h2 className='font-inter font-semibold text-lg text-secondary'>{item.userName}</h2>

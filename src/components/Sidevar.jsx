@@ -19,6 +19,7 @@ import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 
 import { getStorage, ref, uploadString,getDownloadURL } from "firebase/storage";
+import { getDatabase, ref as dref, set,push } from "firebase/database";
 
 
 
@@ -31,6 +32,7 @@ const defaultSrc =
 function Sidevar() {
   const auth = getAuth();
   const storage = getStorage();
+  const db = getDatabase();
   
   const dispatch =useDispatch()
   const userData = useSelector((state)=>state.activeUser.value)
@@ -94,12 +96,18 @@ function Sidevar() {
     const message4 = cropperRef.current?.cropper.getCroppedCanvas().toDataURL()
     uploadString(storageRef, message4, 'data_url').then((snapshot) => {
       getDownloadURL(storageRef).then((downloadURL) => {
+
         updateProfile(auth.currentUser, {
           photoURL: downloadURL
         }).then(()=>{
-          setIsOpen(false)
-          dispatch(loggedUser({ ...userData ,photoURL:downloadURL}))
-          localStorage.setItem(JSON.stringify({...userData,photoURL:downloadURL}))
+          set(dref(db, 'users/' + userData.uid), {
+            userName:userData.displayName,
+            userImg : downloadURL
+          }).then(()=>{
+            setIsOpen(false)
+            dispatch(loggedUser({ ...userData ,photoURL:downloadURL}))
+            localStorage.setItem(JSON.stringify({...userData,photoURL:downloadURL}))
+          })
         })
       });
     })
