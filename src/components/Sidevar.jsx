@@ -36,7 +36,7 @@ function Sidevar() {
   
   const dispatch =useDispatch()
   const userData = useSelector((state)=>state.activeUser.value)
-  const storageRef = ref(storage, userData.uid);
+ 
 
   
 
@@ -73,6 +73,7 @@ function Sidevar() {
   const [cropData, setCropData] = useState("#");
   const cropperRef = createRef();
   const onChange = (e) => {
+
     e.preventDefault();
     let files;
     if (e.dataTransfer) {
@@ -91,7 +92,7 @@ function Sidevar() {
     if (typeof cropperRef.current?.cropper !== "undefined") {
       setCropData(cropperRef.current?.cropper.getCroppedCanvas().toDataURL());
     }
-
+  const storageRef = ref(storage, userData.uid);
     // Data URL string
     const message4 = cropperRef.current?.cropper.getCroppedCanvas().toDataURL()
     uploadString(storageRef, message4, 'data_url').then((snapshot) => {
@@ -121,6 +122,8 @@ function Sidevar() {
   return (
     <div>
     <div className=' h-screen bg-white shadow-xl px-8'>
+      {
+        userData &&
       <Flex className="items-center w-32 gap-x-2 mt-5 ">
         <div>
         <img  src={userData.photoURL} alt="profile" className='w-9 h-9 rounded-full'/>
@@ -131,6 +134,7 @@ function Sidevar() {
         </div>
 
       </Flex>
+      }
 
       <Link to="/home">
         <div className={`flex w-32 cursor-pointer items-center gap-x-2 mt-16  rounded-[5px] pl-3 pr-6 py-2.5 ${window.location.pathname == "/home" ? "bg-primary text-white" : "bg-transparent text-secondary"}`}>
@@ -172,7 +176,8 @@ function Sidevar() {
         <p className='font-intel font-semibold text-primary text-sm'>Log Out</p>
       </div>
     </div>
-
+ {
+  userData &&
     <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -218,6 +223,7 @@ function Sidevar() {
         }
         
     </Modal>
+ }
     </div>
    
     

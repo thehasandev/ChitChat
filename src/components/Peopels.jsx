@@ -6,7 +6,7 @@ import Image from "../components/Image"
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { IoSearchOutline } from "react-icons/io5";
 
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue,set,push } from "firebase/database";
 import { useSelector } from 'react-redux';
 
 
@@ -27,9 +27,9 @@ function Peopels() {
       onValue(userRef, (snapshot) => {
         let arr =[]
          snapshot.forEach((item)=>{
-          // if(item.key != userData.uid){
-            arr.push(item.val());
-          // }
+          if(item.key != userData.uid){
+            arr.push({...item.val(),userid:item.key});
+          }
          })
          setUserList(arr)
       });
@@ -40,6 +40,16 @@ function Peopels() {
     let filterData = userList.filter((item)=>item.userName.toLowerCase().includes(e.target.value.toLowerCase()))
     setSearchUserList(filterData);
   }
+
+ let handleAddFreind =(item)=>{
+  set(push(ref(db, 'friendrequest')), {
+    whosendid     : userData.uid,
+    whosendname   : userData.displayName,
+    whoreciveid   : item.userid,
+    whorecivename : item.userName
+  });
+ 
+ } 
 
   return (
     <div className='w-[384px] h-[505px] p-5 bg-white shadow-lg rounded-[10px] m-5'>
@@ -67,7 +77,7 @@ function Peopels() {
                   <h2 className='font-inter font-semibold text-lg text-secondary'>{item.userName}</h2>
                 </div>
               </Flex>
-              <button className='font-inter font-normal text-sm bg-primary px-2 py-2 rounded-[2px] text-white'>Add Friend</button>
+              <button onClick={()=>{handleAddFreind(item)}} className='font-inter font-normal text-sm bg-primary px-2 py-2 rounded-[2px] text-white'>Add Friend</button>
             </Flex> 
           ))
 
@@ -86,7 +96,7 @@ function Peopels() {
                 <h2 className='font-inter font-semibold text-lg text-secondary'>{item.userName}</h2>
               </div>
             </Flex>
-            <button className='font-inter font-normal text-sm bg-primary px-2 py-2 rounded-[2px] text-white'>Add Friend</button>
+            <button onClick={()=>{handleAddFreind(item)}} className='font-inter font-normal text-sm bg-primary px-2 py-2 rounded-[2px] text-white'>Add Friend</button>
           </Flex> 
         ))
 
