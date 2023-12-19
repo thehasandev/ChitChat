@@ -1,5 +1,5 @@
 import React from 'react'
-import { createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
 import Home from '../pages/Home';
 import Registration from '../pages/Registration';
@@ -13,44 +13,44 @@ import People from '../pages/People';
 import Friends from '../pages/Friends';
 
 const Route = createBrowserRouter([
-    {
-      path: "/home",
-      element: <Rootlayouts/>,
-      children: [
-        {
-          path: "/home",
-          element: <Home />,
-        },
-        {
-          path: "/home/chat",
-          element: <Chat />,
-        },
-        {
-          path: "/home/group",
-          element: <Group />,
-        },
-        {
-          path: "/home/people",
-          element: <People />,
-        },
-        {
-          path: "/home/friends",
-          element: <Friends />,
-        },
-      ],
-    },
-    {
-      path: "/sing-up",
-      element: <Registration/>,
-    },
-    {
-      path: "/",
-      element: <Login/>,
-    },
-    {
-      path: "/forgot",
-      element: <Forgot/>,
-    },
-  ]);
+  {
+    path: "/home",
+    element: <Rootlayouts />,
+    children: [
+      {
+        path: "/home",
+        element: <Home />,
+      },
+      {
+        path: "/home/chat",
+        element: <Chat />,
+      },
+      {
+        path: "/home/group",
+        element: <Group />,
+      },
+      {
+        path: "/home/people",
+        element: <People />,
+      },
+      {
+        path: "/home/friends",
+        element: <Friends />,
+      },
+    ],
+  },
+  {
+    path: "/sing-up",
+    element: <Registration />,
+  },
+  {
+    path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/forgot",
+    element: <Forgot />,
+  },
+]);
 
-  export default Route
+export default Route
